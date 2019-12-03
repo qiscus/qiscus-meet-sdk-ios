@@ -1,0 +1,16 @@
+PODS:
+  - QiscusMeet (0.1.0)
+
+DEPENDENCIES:
+  - QiscusMeet (from `../`)
+
+EXTERNAL SOURCES:
+  QiscusMeet:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  QiscusMeet: 89cfd3acf8cd71396168cb05e0504b6abe3d2a6b
+
+PODFILE CHECKSUM: 917a29fa590667780248f5b10ca816da3b5efd17
+
+COCOAPODS: 1.8.4
