@@ -12,8 +12,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
 
     var pipViewCoordinator: PiPViewCoordinator?
     var jitsiMeetView: JitsiMeetView?
-    var roomName :String = ""
-    
+    var baseUrlCall: String = ""
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
     }
@@ -25,6 +24,9 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let center : NotificationCenter = NotificationCenter.default
+        center.addObserver(self, selector: #selector(MeetRoomVC.endCall(_:)), name: NSNotification.Name(rawValue: "MeetEndCall"), object: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.cleanUp()
             // create and configure jitsimeet view
@@ -33,8 +35,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             self.jitsiMeetView = jitsiMeetView
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
-                builder.serverURL  = URL(string: "https://meet.qiscus.com")
-                builder.room   = self.roomName
+                builder.room  = self.baseUrlCall
             }
             jitsiMeetView.join(options)
             
@@ -50,6 +51,12 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "MeetEndCall"), object: nil)
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -63,6 +70,11 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
         jitsiMeetView = nil
         pipViewCoordinator = nil
     }
+    
+    @objc func endCall(_ notification: Notification){
+        jitsiMeetView?.leave()
+    }
+    
     
     func conferenceJoined(_ data: [AnyHashable : Any]!) {
 

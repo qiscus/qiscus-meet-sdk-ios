@@ -24,17 +24,26 @@ class ViewController: UIViewController {
         if roomName.isEmpty { return }
         
         QiscusMeet.shared.QiscusMeetDelegate = self
-        let vc = QiscusMeet.shared.call(roomName: roomName)
-        self.navigationController?.present(vc, animated: true, completion: {
-            
-        })
+        QiscusMeet.shared.getJwtUrl(room: roomName, avatar: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "Ganjar", onSuccess: { (url) in
+            let vc = QiscusMeet.shared.call(baseUrlCall : url)
+            self.navigationController?.present(vc, animated: true, completion: {
+                
+            })
+        }) { (error) in
+            print("meet error =\(error)")
+        }
+        
+    }
+    
+    func endcall(){
+        QiscusMeet.shared.endCall()
     }
 }
 
 extension ViewController : QiscusMeetDelegate{
     func conferenceTerminated() {
         self.navigationController?.dismiss(animated: true, completion: {
-            
+            //actionSend comment endCall
         })
     }
 }
