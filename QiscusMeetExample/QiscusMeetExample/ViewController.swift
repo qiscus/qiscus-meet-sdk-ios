@@ -15,28 +15,35 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        QiscusMeet.shared.QiscusMeetDelegate = self
     }
-
-    // MARK: - Actions
+    
     @IBAction func openJitsiMeet(sender: Any?) {
         guard let roomName = self.fieldRoom.text else { return }
         if roomName.isEmpty { return }
         
-        QiscusMeet.shared.QiscusMeetDelegate = self
-        QiscusMeet.shared.getJwtUrl(room: roomName, avatar: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "Ganjar", onSuccess: { (url) in
-            let vc = QiscusMeet.shared.call(baseUrlCall : url)
+       self.call(isVideo: true, roomName: roomName)
+    }
+
+    @IBAction func openJitsiMeetAudio(_ sender: Any) {
+        guard let roomName = self.fieldRoom.text else { return }
+        if roomName.isEmpty { return }
+        
+        self.call(isVideo: false, roomName: roomName)
+    }
+    
+    func call(isVideo: Bool, roomName : String){
+        let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "arief", onSuccess: { (vc) in
             self.navigationController?.present(vc, animated: true, completion: {
                 
             })
         }) { (error) in
             print("meet error =\(error)")
         }
-        
     }
     
     func endcall(){
-        QiscusMeet.shared.endCall()
+        QiscusMeet.endCall()
     }
 }
 

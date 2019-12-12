@@ -13,6 +13,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var pipViewCoordinator: PiPViewCoordinator?
     var jitsiMeetView: JitsiMeetView?
     var baseUrlCall: String = ""
+    var isVideo: Bool = true
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
     }
@@ -32,12 +33,22 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             // create and configure jitsimeet view
             let jitsiMeetView = JitsiMeetView()
             jitsiMeetView.delegate = self
+            
             self.jitsiMeetView = jitsiMeetView
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
+              
+                if self.isVideo{
+                    builder.audioMuted = false
+                    builder.videoMuted = false
+                }else{
+                    builder.videoMuted = true
+                    builder.audioOnly = true
+                }
             }
             jitsiMeetView.join(options)
+            
             
             // Enable jitsimeet view to be a view that can be displayed
             // on top of all the things, and let the coordinator to manage

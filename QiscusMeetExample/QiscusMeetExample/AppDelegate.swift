@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        QiscusMeet.shared.initBaseServer(url: "https://meet.qiscus.com")
-        QiscusMeet.shared.initJwtServer(url:"https://meet-jwt.qiscus.com/generate_url")
+        QiscusMeet.setup(url: "https://meet.qiscus.com")
         return true
     }
 

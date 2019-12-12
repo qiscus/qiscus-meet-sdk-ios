@@ -25,10 +25,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-KX-8KR">
-                                <rect key="frame" x="172.5" y="168" width="30" height="30"/>
-                                <state key="normal" title="Join"/>
+                                <rect key="frame" x="151.5" y="168" width="72" height="30"/>
+                                <state key="normal" title="Join Video"/>
                                 <connections>
                                     <action selector="openJitsiMeetWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2q2-hd-IHf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="et7-Mq-EoX">
+                                <rect key="frame" x="151.5" y="218" width="72" height="30"/>
+                                <state key="normal" title="Join Audio"/>
+                                <connections>
+                                    <action selector="openJitsiMeetAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfo-2u-vkg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,7 +44,9 @@
                             <constraint firstItem="TRP-43-KWR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Br5-6i-uJ7"/>
                             <constraint firstItem="j0D-KX-8KR" firstAttribute="top" secondItem="TRP-43-KWR" secondAttribute="bottom" constant="8" symbolic="YES" id="CbT-HW-JBS"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="KdN-Ad-4Rr"/>
+                            <constraint firstItem="et7-Mq-EoX" firstAttribute="top" secondItem="j0D-KX-8KR" secondAttribute="bottom" constant="20" id="j2W-89-S40"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="jn6-ER-f3F"/>
+                            <constraint firstItem="et7-Mq-EoX" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="qnA-if-I45"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tD1-zZ-wdv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

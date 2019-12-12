@@ -33,33 +33,24 @@ public class QiscusMeet: NSObject {
         }
     }
     
-    public func initJwtServer(url: String){
+    public class func setup(url : String){
         let defaults = UserDefaults.standard
-        defaults.set(url, forKey: prefixQiscus + "initJwtServer")
+        defaults.set(url, forKey: QiscusMeet.shared.prefixQiscus + "initBaseServer")
     }
     
-    public func initBaseServer(url : String){
-        let defaults = UserDefaults.standard
-        defaults.set(url, forKey: prefixQiscus + "initBaseServer")
-    }
-    
-    private func getInitBaseServer() -> String{
+    private func getBaseUrl() -> String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: prefixQiscus + "initBaseServer") ?? "https://meet.qiscus.com"
     }
     
-    private func getInitJwtServer() -> String{
-        let defaults = UserDefaults.standard
-        return defaults.string(forKey: prefixQiscus + "initJwtServer") ?? "https://meet-jwt.qiscus.com"
-    }
-    
-    public func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
-        let baseUrlRoom = getInitBaseServer() + "/" + room
+    private func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
+        let baseUrlRoom = getBaseUrl() + "/" + room
         var params = ["baseUrl": baseUrlRoom,
                       "name" : displayName,
                       "avatar" : avatar
                       ]
-        Alamofire.request(getInitJwtServer(),
+        let url = getBaseUrl() + ":9090/generate_url"
+        Alamofire.request(url,
                           method: .post,
                           parameters: params,
                           encoding: JSONEncoding.default)
@@ -78,13 +69,18 @@ public class QiscusMeet: NSObject {
         
     }
     
-    public func call(baseUrlCall: String)->UIViewController{
-        let vc = MeetRoomVC()
-        vc.baseUrlCall = baseUrlCall
-        return vc
+    public class func call(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess:  @escaping (UIViewController) -> Void, onError: @escaping (String) -> Void){
+        QiscusMeet.shared.getJwtUrl(room: room, avatar: avatarUrl, displayName: displayName, onSuccess: { (url) in
+            let vc = MeetRoomVC()
+            vc.baseUrlCall = url
+            vc.isVideo = isVideo
+            onSuccess(vc)
+        }) { (error) in
+            onError(error)
+        }
     }
     
-    public func endCall(){
+    public class func endCall(){
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MeetEndCall"), object: nil)
     }
     
