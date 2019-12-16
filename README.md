@@ -8,13 +8,28 @@ Qiscus Meet is a product provide by Qiscus as a solution for conference call. Yo
 - Minimum iOS 8.0
 - xCode 10.xx
 
-## Start Call
+## Init QiscusMeet
+init QiscusMeet with base url
 ```
-QiscusMeet.shared.QiscusMeetDelegate = self
-    let vc = QiscusMeet.shared.call(roomName: roomName)
+QiscusMeet.setup(url: "<<base url>>")
+```
+## Start Call
+Set `QiscusMeetDelegate` in your viewDidLoad()
+```
+override func viewDidLoad() {
+    super.viewDidLoad()
+    QiscusMeet.shared.QiscusMeetDelegate = self
+}
+```
+
+```
+QiscusMeet.call(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess: { (vc) in
     self.navigationController?.present(vc, animated: true, completion: {
         
-})
+    })
+}) { (error) in
+    print("meet error =\(error)")
+}
 ```
 
 ```
