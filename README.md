@@ -11,7 +11,7 @@ Qiscus Meet is a product provide by Qiscus as a solution for conference call. Yo
 ## Init QiscusMeet
 init QiscusMeet with base url
 ```
-QiscusMeet.setup(url: "<<base url>>")
+QiscusMeet.setup(url: baseUr)
 ```
 ## Start Call
 Set `QiscusMeetDelegate` in your viewDidLoad()
@@ -22,15 +22,7 @@ override func viewDidLoad() {
 }
 ```
 
-```
-QiscusMeet.call(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess: { (vc) in
-    self.navigationController?.present(vc, animated: true, completion: {
-        
-    })
-}) { (error) in
-    print("meet error =\(error)")
-}
-```
+Implementation QiscusMeetDelegate
 
 ```
 extension ViewController : QiscusMeetDelegate{
@@ -41,3 +33,34 @@ extension ViewController : QiscusMeetDelegate{
     }
 }
 ```
+
+Implementation start call
+
+```
+ /// Func Start Call
+ /// - Parameter :
+ /// isVideo: Boolean, by default is video (true), if you want to use audio, you can set isVideo : false 
+ /// room: String
+ /// avatarUrl: String
+ /// displayName: String
+ /// - Returns: onSuccess() will return UIViewController, and onError will return String Error
+
+QiscusMeet.call(isVideo: true, room: String, avatarUrl: String, displayName: String, onSuccess: { (vc) in
+    self.navigationController?.present(vc, animated: true, completion: {
+        
+    })
+}) { (error) in
+    print("meet error =\(error)")
+}
+```
+
+Implementation end call
+
+```
+ func endcall(){
+    QiscusMeet.endCall()
+ }
+```
+
+
+
