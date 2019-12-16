@@ -45,7 +45,7 @@ public class QiscusMeet: NSObject {
     
     private func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
         let baseUrlRoom = getBaseUrl() + "/" + room
-        var params = ["baseUrl": baseUrlRoom,
+        let params = ["baseUrl": baseUrlRoom,
                       "name" : displayName,
                       "avatar" : avatar
                       ]
@@ -61,7 +61,7 @@ public class QiscusMeet: NSObject {
                     return
                 }
                 
-                var data = JSON(response.result.value)
+                var data = JSON(response.result.value!)
                 let url = data["url"].stringValue
 
                 onSuccess(url)
