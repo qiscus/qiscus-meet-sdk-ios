@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
   s.authors          = 'Qiscus'
   s.source           = { :git => 'https://github.com/qiscus/qiscus-sdk-meet-ios.git', :tag => s.version }
   s.social_media_url = 'https://qiscus.com'
-  s.source_files  = "QiscusMeet/**/*.{swift}"
+  s.swift_version    = '4.1'
+  s.source_files     = "QiscusMeet/**/*.{swift}"
   s.resource_bundles = {
     'QiscusMeet' => ['QiscusMeet/**/*.{xib,xcassets,imageset,png}']
   }
