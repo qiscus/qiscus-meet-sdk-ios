@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
-  - QiscusMeet (0.1.0):
+  - QiscusMeet (0.2.0):
     - Alamofire
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
@@ -19,9 +19,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  QiscusMeet: 0ff1eda0fee85a7aba17eb42cf36ec77f2225db3
+  QiscusMeet: facb6c7dbea154c768a752ce0808069bc9a175bb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 917a29fa590667780248f5b10ca816da3b5efd17
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

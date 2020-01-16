@@ -1,6 +1,6 @@
 {
   "name": "QiscusMeet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "Qiscus Meet iOS SDK",
   "description": "Qiscus Meet is a WebRTC compatible, free and Open Source video conferencing system that provides browsers and mobile applications with Real Time Communications capabilities.",
   "homepage": "https://documentation.qiscus.com/qiscus-meet/introduction",
@@ -8,9 +8,10 @@
   "authors": "Qiscus",
   "source": {
     "git": "https://github.com/qiscus/qiscus-sdk-meet-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "social_media_url": "https://qiscus.com",
+  "swift_versions": "4.1",
   "source_files": "QiscusMeet/**/*.{swift}",
   "resource_bundles": {
     "QiscusMeet": [
@@ -31,5 +32,6 @@
     "SwiftyJSON": [
 
     ]
-  }
+  },
+  "swift_version": "4.1"
 }
