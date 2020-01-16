@@ -66,7 +66,26 @@ public class QiscusMeet: NSObject {
 
                 onSuccess(url)
             }
-        
+    }
+    
+    private func getTotalParticipants(room: String, onSuccess:  @escaping (Int) -> Void, onError: @escaping (String) -> Void){
+
+        let url = getBaseUrl() + "/get-room-size?room="+room
+        Alamofire.request(url,
+                          method: .get,
+                          encoding: JSONEncoding.default)
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    onError(String(describing: response.result.error))
+                    return
+                }
+                
+                var data = JSON(response.result.value!)
+                let participants = data["participants"].stringValue
+                let intValue:Int = Int(participants)!
+                
+                onSuccess(intValue)
+        }
     }
     
     public class func call(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess:  @escaping (UIViewController) -> Void, onError: @escaping (String) -> Void){
@@ -78,6 +97,26 @@ public class QiscusMeet: NSObject {
         }) { (error) in
             onError(error)
         }
+    }
+    
+    public class func answer(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess:  @escaping (UIViewController) -> Void, onError: @escaping (String) -> Void){
+        
+        QiscusMeet.shared.getTotalParticipants(room: room, onSuccess: { (participants) in
+           print("QiscusMeet get participants = \(String(describing: participants))")
+            if(participants > 0){
+                QiscusMeet.shared.getJwtUrl(room: room, avatar: avatarUrl, displayName: displayName, onSuccess: { (url) in
+                    let vc = MeetRoomVC()
+                    vc.baseUrlCall = url
+                    vc.isVideo = isVideo
+                    onSuccess(vc)
+                }) { (error) in
+                    onError(error)
+                }
+            }
+        }) { (error) in
+            onError(error)
+        }
+        
     }
     
     public class func endCall(){
