@@ -19,7 +19,7 @@
     ]
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "11.0"
   },
   "vendored_frameworks": [
     "SDK/JitsiMeet.framework",

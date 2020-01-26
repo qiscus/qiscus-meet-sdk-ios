@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     'QiscusMeet' => ['QiscusMeet/**/*.{xib,xcassets,imageset,png}']
   }
 
-  s.platform         = :ios, '10.0'
+  s.platform         = :ios, '11.0'
 
   s.vendored_frameworks = 'SDK/JitsiMeet.framework', 'SDK/WebRTC.framework'
   s.dependency 'Alamofire'
