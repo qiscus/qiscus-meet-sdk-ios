@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     
     func call(isVideo: Bool, roomName : String){
         let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "arief", onSuccess: { (vc) in
+            vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
                 
             })
