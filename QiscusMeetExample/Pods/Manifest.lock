@@ -1,7 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
   - QiscusMeet (2.0.0.rc.1):
-    - Alamofire
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
 
@@ -10,7 +8,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -18,10 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  QiscusMeet: d1125ae937df5a77eb6a6c83f45eeb7b717ffaac
+  QiscusMeet: f3f7bb3570cbc572a0f86065a22154d93b7ee468
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 3a59d905f22616521eadd44be6378af7905ace29
+PODFILE CHECKSUM: 1fb3030bccd9b1cc8f4eb3c1e8c3949286f9d973
 
 COCOAPODS: 1.8.4
