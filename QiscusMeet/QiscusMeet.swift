@@ -12,6 +12,7 @@ import SwiftyJSON
 
 public protocol QiscusMeetDelegate {
     func conferenceTerminated()
+    func backButton()
 }
 
 public class QiscusMeet: NSObject {

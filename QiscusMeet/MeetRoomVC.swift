@@ -37,6 +37,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             self.jitsiMeetView = jitsiMeetView
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
+                builder.setFeatureFlag("directCall", withBoolean: true)
                 builder.room  = self.baseUrlCall
               
                 if self.isVideo{
@@ -49,6 +50,25 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             }
             jitsiMeetView.join(options)
             
+           let backIcon = UIImageView()
+            backIcon.contentMode = .scaleAspectFit
+            
+            let image = UIImage(named: "AppIcon")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            backIcon.image = image
+            backIcon.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+            if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+                backIcon.frame = CGRect(x: 0,y: 11,width: 30,height: 25)
+            }else{
+                backIcon.frame = CGRect(x: 22,y: 11,width: 30,height: 25)
+            }
+            
+            let backButton = UIButton(frame:CGRect(x: 0,y: 0,width: 30,height: 44))
+            backButton.addSubview(backIcon)
+            backButton.addTarget(self, action: #selector(MeetRoomVC.goBack), for: UIControl.Event.touchUpInside)
+            
+            jitsiMeetView.addSubview(backButton)
+            
             
             // Enable jitsimeet view to be a view that can be displayed
             // on top of all the things, and let the coordinator to manage
@@ -59,6 +79,13 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             // animate in
             jitsiMeetView.alpha = 0
             self.pipViewCoordinator?.show()
+        }
+    }
+    
+    @objc func goBack() {
+        view.endEditing(true)
+        if let delegate = QiscusMeet.shared.QiscusMeetDelegate{
+            delegate.backButton()
         }
     }
     
