@@ -38,6 +38,11 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
                 builder.setFeatureFlag("directCall", withBoolean: true)
+                builder.setFeatureFlag("qiscusToken", withValue: "tdf")
+                builder.setFeatureFlag("channelId", withValue: "ttes")
+                builder.setFeatureFlag("channelName", withValue: "true")
+                builder.setFeatureFlag("qiscusRoom", withValue: "true")
+                builder.setFeatureFlag("refreshToken", withValue: "true")
                 builder.room  = self.baseUrlCall
               
                 if self.isVideo{
