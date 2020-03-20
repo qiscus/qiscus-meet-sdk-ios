@@ -55,4 +55,18 @@
  */
 - (void)enterPictureInPicture:(NSDictionary *)data;
 
+/**
+* Called after press icon back button
+*
+* The `data`
+*/
+- (void)backPressedConference:(NSDictionary *)data;
+
+/**
+* For custom event
+*
+* The `data`
+ */
+- (void)customEvent:(NSDictionary *)data;
+
 @end
