@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIu-ZA-wCv">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIu-ZA-wCv">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,23 +17,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-43-KWR">
-                                <rect key="frame" x="67" y="130" width="241" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="67" y="110" width="241" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-KX-8KR">
-                                <rect key="frame" x="151.5" y="168" width="72" height="30"/>
+                                <rect key="frame" x="151.5" y="152" width="72" height="30"/>
                                 <state key="normal" title="Join Video"/>
                                 <connections>
                                     <action selector="openJitsiMeetWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2q2-hd-IHf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="et7-Mq-EoX">
-                                <rect key="frame" x="151.5" y="218" width="72" height="30"/>
+                                <rect key="frame" x="151.5" y="202" width="72" height="30"/>
                                 <state key="normal" title="Join Audio"/>
                                 <connections>
                                     <action selector="openJitsiMeetAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfo-2u-vkg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhF-xq-GvX">
+                                <rect key="frame" x="92.5" y="252" width="190" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CNL-6B-P9F"/>
+                                    <constraint firstAttribute="width" constant="190" id="MIJ-qZ-8kA"/>
+                                </constraints>
+                                <state key="normal" title="Send event native to meet"/>
+                                <connections>
+                                    <action selector="sendEventNativeToMeet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vg4-gd-1db"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,8 +51,10 @@
                         <constraints>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Br5-6i-uJ7"/>
                             <constraint firstItem="j0D-KX-8KR" firstAttribute="top" secondItem="TRP-43-KWR" secondAttribute="bottom" constant="8" symbolic="YES" id="CbT-HW-JBS"/>
+                            <constraint firstItem="vhF-xq-GvX" firstAttribute="top" secondItem="et7-Mq-EoX" secondAttribute="bottom" constant="20" id="Ie6-wH-nOB"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="KdN-Ad-4Rr"/>
                             <constraint firstItem="et7-Mq-EoX" firstAttribute="top" secondItem="j0D-KX-8KR" secondAttribute="bottom" constant="20" id="j2W-89-S40"/>
+                            <constraint firstItem="vhF-xq-GvX" firstAttribute="centerX" secondItem="et7-Mq-EoX" secondAttribute="centerX" id="jRy-7g-uqA"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="jn6-ER-f3F"/>
                             <constraint firstItem="et7-Mq-EoX" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="qnA-if-I45"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tD1-zZ-wdv"/>
@@ -67,7 +77,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KIu-ZA-wCv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pYY-Qc-625">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

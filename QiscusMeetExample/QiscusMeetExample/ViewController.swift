@@ -39,6 +39,10 @@ class ViewController: UIViewController {
         self.call(isVideo: false, roomName: roomName)
     }
     
+    @IBAction func sendEventNativeToMeet(_ sender: Any) {
+        //add your code in here
+    }
+    
     func call(isVideo: Bool, roomName : String){
         _ = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "arief", onSuccess: { (vc) in
             self.viewVC = vc
