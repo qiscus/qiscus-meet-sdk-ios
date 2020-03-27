@@ -17,6 +17,5 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '11.0'
 
   s.vendored_frameworks = 'SDK/JitsiMeet.framework', 'SDK/WebRTC.framework'
-  s.dependency 'Alamofire'
   s.dependency 'SwiftyJSON'
 end

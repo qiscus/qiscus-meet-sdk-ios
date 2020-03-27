@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-QiscusMeetExample/Pods-QiscusMeetExample-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${PODS_ROOT}/../../SDK/JitsiMeet.framework
 ${PODS_ROOT}/../../SDK/WebRTC.framework
 ${BUILT_PRODUCTS_DIR}/QiscusMeet/QiscusMeet.framework

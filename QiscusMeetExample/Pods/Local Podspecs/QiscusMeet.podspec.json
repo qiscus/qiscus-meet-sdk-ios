@@ -26,9 +26,6 @@
     "SDK/WebRTC.framework"
   ],
   "dependencies": {
-    "Alamofire": [
-
-    ],
     "SwiftyJSON": [
 
     ]
