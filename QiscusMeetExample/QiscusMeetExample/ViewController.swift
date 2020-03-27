@@ -12,6 +12,7 @@ import QiscusMeet
 class ViewController: UIViewController {
     @IBOutlet weak var videoButton: UIButton?
     @IBOutlet weak var fieldRoom: UITextField!
+    @IBOutlet weak var fieldName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,12 @@ class ViewController: UIViewController {
     }
     
     func call(isVideo: Bool, roomName : String){
-        let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: "arief", onSuccess: { (vc) in
+        
+        if fieldName.text?.isEmpty == true {
+            return
+        }
+        
+        let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: fieldName.text ?? "UserDefault", onSuccess: { (vc) in
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
                 
