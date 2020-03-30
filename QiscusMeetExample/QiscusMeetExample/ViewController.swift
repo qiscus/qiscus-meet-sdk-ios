@@ -10,6 +10,9 @@ import UIKit
 import QiscusMeet
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    
     @IBOutlet weak var videoButton: UIButton?
     @IBOutlet weak var fieldRoom: UITextField!
     @IBOutlet weak var fieldName: UITextField!
@@ -17,6 +20,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         QiscusMeet.shared.QiscusMeetDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadingView.isHidden = true
     }
     
     @IBAction func openJitsiMeet(sender: Any?) {
@@ -39,12 +47,21 @@ class ViewController: UIViewController {
             return
         }
         
-        let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "https://filmschoolrejects.com/wp-content/uploads/2017/04/0JRofTsuy93evl_J5.jpg", displayName: fieldName.text ?? "UserDefault", onSuccess: { (vc) in
+        loadingView.isHidden = false
+        loadingView.startAnimating()
+        
+        let vc = QiscusMeet.call(isVideo: isVideo, room: roomName, avatarUrl: "", displayName: fieldName.text ?? "UserDefault", onSuccess: { (vc) in
+            
+            self.loadingView.isHidden = true
+            self.loadingView.stopAnimating()
+            
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
                 
             })
         }) { (error) in
+            self.loadingView.isHidden = true
+            self.loadingView.stopAnimating()
             print("meet error =\(error)")
         }
     }

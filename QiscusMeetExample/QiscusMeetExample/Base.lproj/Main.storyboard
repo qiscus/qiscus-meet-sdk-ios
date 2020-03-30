@@ -40,15 +40,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bPE-XT-5Ab">
+                                <rect key="frame" x="162.5" y="330.5" width="50" height="50"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="SAl-Wl-R76"/>
+                                    <constraint firstAttribute="height" constant="50" id="gXQ-yR-3Xv"/>
+                                </constraints>
+                                <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="u1r-lM-xzq" firstAttribute="top" secondItem="TRP-43-KWR" secondAttribute="bottom" constant="24" id="BEV-y7-8lc"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="Br5-6i-uJ7"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="KdN-Ad-4Rr"/>
+                            <constraint firstItem="bPE-XT-5Ab" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="PxB-t7-2PJ"/>
                             <constraint firstItem="j0D-KX-8KR" firstAttribute="top" secondItem="u1r-lM-xzq" secondAttribute="bottom" constant="17" id="Zy6-F5-cE9"/>
                             <constraint firstItem="et7-Mq-EoX" firstAttribute="top" secondItem="j0D-KX-8KR" secondAttribute="bottom" constant="20" id="j2W-89-S40"/>
                             <constraint firstItem="TRP-43-KWR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="jn6-ER-f3F"/>
+                            <constraint firstItem="bPE-XT-5Ab" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nR4-6A-cqU"/>
                             <constraint firstItem="u1r-lM-xzq" firstAttribute="leading" secondItem="TRP-43-KWR" secondAttribute="leading" id="odn-B9-y5c"/>
                             <constraint firstItem="et7-Mq-EoX" firstAttribute="centerX" secondItem="j0D-KX-8KR" secondAttribute="centerX" id="qnA-if-I45"/>
                             <constraint firstItem="u1r-lM-xzq" firstAttribute="trailing" secondItem="TRP-43-KWR" secondAttribute="trailing" id="qnH-dp-Dyv"/>
@@ -60,6 +71,7 @@
                     <connections>
                         <outlet property="fieldName" destination="u1r-lM-xzq" id="aDm-4M-J04"/>
                         <outlet property="fieldRoom" destination="TRP-43-KWR" id="bQg-i0-8Vc"/>
+                        <outlet property="loadingView" destination="bPE-XT-5Ab" id="atD-dX-j1c"/>
                         <outlet property="videoButton" destination="j0D-KX-8KR" id="G6W-24-q4A"/>
                     </connections>
                 </viewController>
