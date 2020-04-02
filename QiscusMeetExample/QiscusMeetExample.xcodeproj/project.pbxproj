@@ -12,6 +12,8 @@
 		043124872269C00F003C7E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043124852269C00F003C7E3E /* Main.storyboard */; };
 		043124892269C011003C7E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043124882269C011003C7E3E /* Assets.xcassets */; };
 		0431248C2269C011003C7E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0431248A2269C011003C7E3E /* LaunchScreen.storyboard */; };
+		3DD5C8592435E344001A7941 /* ConferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5C8572435E344001A7941 /* ConferenceVC.swift */; };
+		3DD5C85A2435E344001A7941 /* ConferenceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5C8582435E344001A7941 /* ConferenceVC.xib */; };
 		B2A5D37AEDA89ED2CF4BFBF3 /* Pods_QiscusMeetExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D18379216495591D1647E2D /* Pods_QiscusMeetExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,9 @@
 		0431248B2269C011003C7E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0431248D2269C011003C7E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DDB41A7B8586FDD84163CBE /* Pods-QiscusMeetExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QiscusMeetExample.release.xcconfig"; path = "Target Support Files/Pods-QiscusMeetExample/Pods-QiscusMeetExample.release.xcconfig"; sourceTree = "<group>"; };
+		3D5C8431243626600070E142 /* QiscusMeetExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QiscusMeetExample.entitlements; sourceTree = "<group>"; };
+		3DD5C8572435E344001A7941 /* ConferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceVC.swift; sourceTree = "<group>"; };
+		3DD5C8582435E344001A7941 /* ConferenceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceVC.xib; sourceTree = "<group>"; };
 		9D18379216495591D1647E2D /* Pods_QiscusMeetExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QiscusMeetExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1EEFBBDDD341346388CBFE5 /* Pods-QiscusMeetExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QiscusMeetExample.debug.xcconfig"; path = "Target Support Files/Pods-QiscusMeetExample/Pods-QiscusMeetExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,12 +66,15 @@
 		043124802269C00F003C7E3E /* QiscusMeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				3D5C8431243626600070E142 /* QiscusMeetExample.entitlements */,
 				043124812269C00F003C7E3E /* AppDelegate.swift */,
 				043124832269C00F003C7E3E /* ViewController.swift */,
 				043124852269C00F003C7E3E /* Main.storyboard */,
 				043124882269C011003C7E3E /* Assets.xcassets */,
 				0431248A2269C011003C7E3E /* LaunchScreen.storyboard */,
 				0431248D2269C011003C7E3E /* Info.plist */,
+				3DD5C8572435E344001A7941 /* ConferenceVC.swift */,
+				3DD5C8582435E344001A7941 /* ConferenceVC.xib */,
 			);
 			path = QiscusMeetExample;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 			files = (
 				0431248C2269C011003C7E3E /* LaunchScreen.storyboard in Resources */,
 				043124892269C011003C7E3E /* Assets.xcassets in Resources */,
+				3DD5C85A2435E344001A7941 /* ConferenceVC.xib in Resources */,
 				043124872269C00F003C7E3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043124842269C00F003C7E3E /* ViewController.swift in Sources */,
+				3DD5C8592435E344001A7941 /* ConferenceVC.swift in Sources */,
 				043124822269C00F003C7E3E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +361,7 @@
 			baseConfigurationReference = C1EEFBBDDD341346388CBFE5 /* Pods-QiscusMeetExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
@@ -375,6 +386,7 @@
 			baseConfigurationReference = 0DDB41A7B8586FDD84163CBE /* Pods-QiscusMeetExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
