@@ -17,6 +17,7 @@ class ConferenceVC: UIViewController {
     @IBOutlet weak var audioCallRightCons: NSLayoutConstraint!
     @IBOutlet weak var videoCallLeftCons: NSLayoutConstraint!
     
+    @IBOutlet weak var lbRoomID: UILabel!
     var name: String = ""
     var roomID : String = ""
     
@@ -28,6 +29,8 @@ class ConferenceVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        
+        self.lbRoomID.text = "RoomID : \(roomID)"
         
         if UIScreen.main.sizeType == .iPhone5{
             btAudioCallLeftCons.constant = 10

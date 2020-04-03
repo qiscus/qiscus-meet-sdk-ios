@@ -43,7 +43,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // Mark: - Handle URL Schemes
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (url.scheme == "com.qiscus.meetios") {
+            self.handleUrl(url: url)
+        }
+        return false
+    }
 
 
 }
+
+// Mark: - Handle URL Scheme
+extension AppDelegate {
+    
+    func handleUrl(url: URL) {
+        var parameters: [String: String] = [:]
+        // Handle url and open whatever page you want to open.
+        URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+            parameters[$0.name] = $0.value
+        }
+        let roomID = url.path.replacingOccurrences(of: "/", with: "")
+        
+        let rootViewController = self.window!.rootViewController as! UINavigationController
+        
+        let sharedPref = UserDefaults.standard
+        if let name = sharedPref.string(forKey: "name"){
+            let vc = ConferenceVC()
+            vc.name   = name
+            vc.roomID = roomID
+            
+            rootViewController.pushViewController(vc, animated: true)
+        }else{
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "Main") as! ViewController
+            vc.roomIDDeep = roomID
+            rootViewController.pushViewController(vc, animated: true)
+        }
+    }
+}
+
 

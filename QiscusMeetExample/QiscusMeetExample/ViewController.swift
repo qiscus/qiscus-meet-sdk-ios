@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fieldRoom: UITextField!
     @IBOutlet weak var fieldName: UITextField!
     @IBOutlet weak var btStartConference: UIButton!
+    var roomIDDeep : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -21,6 +22,15 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        
+        let sharedPref = UserDefaults.standard
+        if let name = sharedPref.string(forKey: "name"){
+            self.fieldName.text = name
+        }
+        
+        if !roomIDDeep.isEmpty{
+            self.fieldRoom.text = roomIDDeep
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,9 +51,9 @@ class ViewController: UIViewController {
         fieldName.layer.borderColor = UIColor.white.cgColor
         
         //placeholder
-        fieldRoom.attributedPlaceholder = NSAttributedString(string: "Type your username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
+        fieldRoom.attributedPlaceholder = NSAttributedString(string: "Type your room id", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
         
-        fieldName.attributedPlaceholder = NSAttributedString(string: "Type your room id", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
+        fieldName.attributedPlaceholder = NSAttributedString(string: "Type your name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
         
         fieldName.setLeftPaddingPoints(10)
         fieldName.setRightPaddingPoints(10)
@@ -90,6 +100,9 @@ class ViewController: UIViewController {
         if userName.isEmpty {
             return
         }
+        
+        let sharedPref = UserDefaults.standard
+        sharedPref.setValue(userName, forKey: "name")
         
         let vc = ConferenceVC()
         vc.name = userName
