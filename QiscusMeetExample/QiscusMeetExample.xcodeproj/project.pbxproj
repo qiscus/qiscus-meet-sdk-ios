@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0431247E2269C00F003C7E3E /* QiscusMeetExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiscusMeetExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0431247E2269C00F003C7E3E /* Qiscus Meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiscus Meet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043124812269C00F003C7E3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043124832269C00F003C7E3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		043124862269C00F003C7E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		0431247F2269C00F003C7E3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0431247E2269C00F003C7E3E /* QiscusMeetExample.app */,
+				0431247E2269C00F003C7E3E /* Qiscus Meet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,7 +115,7 @@
 			);
 			name = QiscusMeetExample;
 			productName = QiscusMeetExample;
-			productReference = 0431247E2269C00F003C7E3E /* QiscusMeetExample.app */;
+			productReference = 0431247E2269C00F003C7E3E /* Qiscus Meet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -364,7 +364,7 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QiscusMeetExample/Info.plist;
@@ -374,7 +374,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,7 +389,7 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QiscusMeetExample/Info.plist;
@@ -399,7 +399,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
