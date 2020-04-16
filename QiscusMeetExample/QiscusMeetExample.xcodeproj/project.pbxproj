@@ -398,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";
@@ -424,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";
