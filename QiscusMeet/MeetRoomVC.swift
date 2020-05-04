@@ -38,6 +38,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
+                builder.setFeatureFlag("requirepassword.enabled", withBoolean: true)
               
                 if self.isVideo{
                     builder.audioMuted = false
