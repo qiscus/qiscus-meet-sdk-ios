@@ -12,6 +12,7 @@
 		043124872269C00F003C7E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043124852269C00F003C7E3E /* Main.storyboard */; };
 		043124892269C011003C7E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043124882269C011003C7E3E /* Assets.xcassets */; };
 		0431248C2269C011003C7E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0431248A2269C011003C7E3E /* LaunchScreen.storyboard */; };
+		3D6B3DE22448183000F69F42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6B3DE12448182F00F69F42 /* GoogleService-Info.plist */; };
 		3DD5C8592435E344001A7941 /* ConferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5C8572435E344001A7941 /* ConferenceVC.swift */; };
 		3DD5C85A2435E344001A7941 /* ConferenceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5C8582435E344001A7941 /* ConferenceVC.xib */; };
 		B2A5D37AEDA89ED2CF4BFBF3 /* Pods_QiscusMeetExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D18379216495591D1647E2D /* Pods_QiscusMeetExample.framework */; };
@@ -27,6 +28,7 @@
 		0431248D2269C011003C7E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DDB41A7B8586FDD84163CBE /* Pods-QiscusMeetExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QiscusMeetExample.release.xcconfig"; path = "Target Support Files/Pods-QiscusMeetExample/Pods-QiscusMeetExample.release.xcconfig"; sourceTree = "<group>"; };
 		3D5C8431243626600070E142 /* QiscusMeetExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QiscusMeetExample.entitlements; sourceTree = "<group>"; };
+		3D6B3DE12448182F00F69F42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DD5C8572435E344001A7941 /* ConferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceVC.swift; sourceTree = "<group>"; };
 		3DD5C8582435E344001A7941 /* ConferenceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceVC.xib; sourceTree = "<group>"; };
 		9D18379216495591D1647E2D /* Pods_QiscusMeetExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QiscusMeetExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 		043124802269C00F003C7E3E /* QiscusMeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				3D6B3DE12448182F00F69F42 /* GoogleService-Info.plist */,
 				3D5C8431243626600070E142 /* QiscusMeetExample.entitlements */,
 				043124812269C00F003C7E3E /* AppDelegate.swift */,
 				043124832269C00F003C7E3E /* ViewController.swift */,
@@ -108,6 +111,7 @@
 				0431247B2269C00F003C7E3E /* Frameworks */,
 				0431247C2269C00F003C7E3E /* Resources */,
 				250B4D00723F8EB916D00BB3 /* [CP] Embed Pods Frameworks */,
+				3D2C3C1524480BAA004A059F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -158,6 +162,7 @@
 			files = (
 				0431248C2269C011003C7E3E /* LaunchScreen.storyboard in Resources */,
 				043124892269C011003C7E3E /* Assets.xcassets in Resources */,
+				3D6B3DE22448183000F69F42 /* GoogleService-Info.plist in Resources */,
 				3DD5C85A2435E344001A7941 /* ConferenceVC.xib in Resources */,
 				043124872269C00F003C7E3E /* Main.storyboard in Resources */,
 			);
@@ -182,6 +187,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QiscusMeetExample/Pods-QiscusMeetExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3D2C3C1524480BAA004A059F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		537A43116C6B3207E58D9103 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -274,7 +298,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -364,7 +388,8 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QiscusMeetExample/Info.plist;
@@ -373,6 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";
@@ -389,7 +415,7 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QiscusMeetExample/Info.plist;
@@ -398,6 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dist";

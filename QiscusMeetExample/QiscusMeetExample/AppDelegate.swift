@@ -8,6 +8,7 @@
 
 import UIKit
 import QiscusMeet
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 3.0)
         QiscusMeet.setup(url: "https://meet.qiscus.com")
+        
+        FirebaseApp.configure()
+        
         return true
     }
 
