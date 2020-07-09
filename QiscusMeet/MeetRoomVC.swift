@@ -13,6 +13,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var pipViewCoordinator: PiPViewCoordinator?
     var jitsiMeetView: JitsiMeetView?
     var baseUrlCall: String = ""
+    var isMicMuted: Bool = false
     var isVideo: Bool = true
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
@@ -38,12 +39,10 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
+                builder.audioMuted = !self.isMicMuted
                 builder.setFeatureFlag("requirepassword.enabled", withBoolean: true)
               
-                if self.isVideo{
-                    builder.audioMuted = false
-                    builder.videoMuted = false
-                }else{
+                if !self.isVideo{
                     builder.videoMuted = true
                     builder.audioOnly = true
                 }

@@ -156,11 +156,12 @@ public class QiscusMeet: NSObject {
         task.resume()
     }
     
-    public class func call(isVideo: Bool = true, room: String, avatarUrl: String, displayName: String, onSuccess:  @escaping (UIViewController) -> Void, onError: @escaping (String) -> Void){
+    public class func call(isVideo: Bool = true, isMicMuted: Bool, room: String, avatarUrl: String, displayName: String, onSuccess:  @escaping (UIViewController) -> Void, onError: @escaping (String) -> Void){
         QiscusMeet.shared.getJwtUrl(room: room, avatar: avatarUrl, displayName: displayName, onSuccess: { (url) in
             let vc = MeetRoomVC()
             vc.baseUrlCall = url
             vc.isVideo = isVideo
+            vc.isMicMuted =  isMicMuted
             onSuccess(vc)
         }) { (error) in
             onError(error)
