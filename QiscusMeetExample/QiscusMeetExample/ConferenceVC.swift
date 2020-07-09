@@ -11,6 +11,7 @@ import QiscusMeet
 
 class ConferenceVC: UIViewController {
 
+    @IBOutlet weak var switchMic: UISwitch!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btAudioCallLeftCons: NSLayoutConstraint!
     @IBOutlet weak var btVideoCallRightCons: NSLayoutConstraint!
@@ -20,9 +21,15 @@ class ConferenceVC: UIViewController {
     @IBOutlet weak var lbRoomID: UILabel!
     var name: String = ""
     var roomID : String = ""
+    var isMicOn : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sharedPref = UserDefaults.standard
+        let sharedMicOn = sharedPref.bool(forKey: "isMicOn")
+        
+        switchMic.addTarget(self, action: #selector(onSwitchValueChanged), for: .touchUpInside)
+        switchMic.setOn(sharedMicOn, animated: true)
         QiscusMeet.shared.QiscusMeetDelegate = self
     }
     
@@ -67,9 +74,15 @@ class ConferenceVC: UIViewController {
         self.call(isVideo: false)
     }
     
+    @objc func onSwitchValueChanged(_ switchClick: UISwitch) {
+        isMicOn = switchClick.isOn
+        let sharedPref = UserDefaults.standard
+        sharedPref.setValue(isMicOn, forKey: "isMicOn")
+    }
+    
     func call(isVideo: Bool){
         showLoading()
-        let vc = QiscusMeet.call(isVideo: isVideo, room: roomID, avatarUrl: "", displayName: name, onSuccess: { (vc) in
+        _ = QiscusMeet.call(isVideo: isVideo, isMicMuted: isMicOn, room: roomID, avatarUrl: "", displayName: name, onSuccess: { (vc) in
             self.dismissLoading()
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
