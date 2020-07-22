@@ -41,6 +41,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.room  = self.baseUrlCall
                 builder.audioMuted = !self.isMicMuted
                 builder.setFeatureFlag("requirepassword.enabled", withBoolean: true)
+                builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: false)
               
                 if !self.isVideo{
                     builder.videoMuted = true
