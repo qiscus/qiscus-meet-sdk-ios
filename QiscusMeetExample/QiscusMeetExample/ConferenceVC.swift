@@ -28,6 +28,8 @@ class ConferenceVC: UIViewController {
         let sharedPref = UserDefaults.standard
         let sharedMicOn = sharedPref.bool(forKey: "isMicOn")
         
+        isMicOn = sharedMicOn
+        
         switchMic.addTarget(self, action: #selector(onSwitchValueChanged), for: .touchUpInside)
         switchMic.setOn(sharedMicOn, animated: true)
         QiscusMeet.shared.QiscusMeetDelegate = self
@@ -63,7 +65,7 @@ class ConferenceVC: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
 
-        self.call(isVideo: true)
+        self.call(isVideo: true, isMuted: isMicOn)
     }
    
     @IBAction func openAudioCall(_ sender: Any) {
@@ -71,7 +73,7 @@ class ConferenceVC: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
 
-        self.call(isVideo: false)
+        self.call(isVideo: false, isMuted: isMicOn)
     }
     
     @objc func onSwitchValueChanged(_ switchClick: UISwitch) {
@@ -80,9 +82,9 @@ class ConferenceVC: UIViewController {
         sharedPref.setValue(isMicOn, forKey: "isMicOn")
     }
     
-    func call(isVideo: Bool){
+    func call(isVideo: Bool, isMuted: Bool){
         showLoading()
-        _ = QiscusMeet.call(isVideo: isVideo, isMicMuted: isMicOn, room: roomID, avatarUrl: "", displayName: name, onSuccess: { (vc) in
+        _ = QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "", displayName: name, onSuccess: { (vc) in
             self.dismissLoading()
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
