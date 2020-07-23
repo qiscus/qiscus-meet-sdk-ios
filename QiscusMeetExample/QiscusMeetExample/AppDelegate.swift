@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 3.0)
-        QiscusMeet.setup(url: "https://meetstage.qiscus.com")
+        QiscusMeet.setup(url: "https://meet.qiscus.com")
         
         FirebaseApp.configure()
         
