@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 3.0)
         QiscusMeet.setup(url: "https://meet.qiscus.com")
+        QiscusMeetConfig.shared.setPassword = true
+        QiscusMeetConfig.shared.setChat = true
+        QiscusMeetConfig.shared.setOverflowMenu = true
         
         FirebaseApp.configure()
         
