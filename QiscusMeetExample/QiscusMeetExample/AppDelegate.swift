@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QiscusMeetConfig.shared.setPassword = true
         QiscusMeetConfig.shared.setChat = true
         QiscusMeetConfig.shared.setOverflowMenu = true
+        QiscusMeetConfig.shared.setVideoThumbnailsOn = false
         
         FirebaseApp.configure()
         
