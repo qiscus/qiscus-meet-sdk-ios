@@ -40,8 +40,10 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
                 builder.audioMuted = !self.isMicMuted
-                builder.setFeatureFlag("requirepassword.enabled", withBoolean: true)
-                builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: false)
+                builder.setFeatureFlag("requirepassword.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
+                builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: QiscusMeetConfig.shared.setVideoThumbnailsOn)
+                builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
+                builder.setFeatureFlag("overflowMenu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
               
                 if !self.isVideo{
                     builder.videoMuted = true

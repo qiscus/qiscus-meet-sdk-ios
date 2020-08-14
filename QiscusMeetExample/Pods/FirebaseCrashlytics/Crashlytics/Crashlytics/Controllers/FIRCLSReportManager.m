@@ -38,36 +38,37 @@
 #import "FBLPromises.h"
 #endif
 
-#import "FIRCLSApplication.h"
-#import "FIRCLSDataCollectionArbiter.h"
-#import "FIRCLSDataCollectionToken.h"
-#import "FIRCLSDefines.h"
-#import "FIRCLSFeatures.h"
-#import "FIRCLSFileManager.h"
-#import "FIRCLSInternalReport.h"
-#import "FIRCLSLogger.h"
-#import "FIRCLSNetworkClient.h"
-#import "FIRCLSPackageReportOperation.h"
-#import "FIRCLSProcessReportOperation.h"
-#import "FIRCLSReportUploader.h"
-#import "FIRCLSSettings.h"
-#import "FIRCLSSymbolResolver.h"
-#import "FIRCLSUserLogging.h"
+#import "Crashlytics/Crashlytics/Components/FIRCLSApplication.h"
+#import "Crashlytics/Crashlytics/Components/FIRCLSUserLogging.h"
+#import "Crashlytics/Crashlytics/Controllers/FIRCLSNetworkClient.h"
+#import "Crashlytics/Crashlytics/Controllers/FIRCLSReportUploader.h"
+#import "Crashlytics/Crashlytics/DataCollection/FIRCLSDataCollectionArbiter.h"
+#import "Crashlytics/Crashlytics/DataCollection/FIRCLSDataCollectionToken.h"
+#import "Crashlytics/Crashlytics/Helpers/FIRCLSDefines.h"
+#import "Crashlytics/Crashlytics/Helpers/FIRCLSFeatures.h"
+#import "Crashlytics/Crashlytics/Helpers/FIRCLSLogger.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSFileManager.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSInternalReport.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSSettings.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSSymbolResolver.h"
+#import "Crashlytics/Crashlytics/Operations/Reports/FIRCLSPackageReportOperation.h"
+#import "Crashlytics/Crashlytics/Operations/Reports/FIRCLSProcessReportOperation.h"
 
-#include "FIRCLSGlobals.h"
-#include "FIRCLSUtility.h"
+#include "Crashlytics/Crashlytics/Components/FIRCLSGlobals.h"
+#include "Crashlytics/Crashlytics/Helpers/FIRCLSUtility.h"
 
-#import "FIRCLSConstants.h"
-#import "FIRCLSExecutionIdentifierModel.h"
-#import "FIRCLSInstallIdentifierModel.h"
-#import "FIRCLSSettingsOnboardingManager.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSExecutionIdentifierModel.h"
+#import "Crashlytics/Crashlytics/Models/FIRCLSInstallIdentifierModel.h"
+#import "Crashlytics/Crashlytics/Settings/FIRCLSSettingsOnboardingManager.h"
+#import "Crashlytics/Shared/FIRCLSConstants.h"
 
-#import "FIRCLSReportManager_Private.h"
+#import "Crashlytics/Crashlytics/Controllers/FIRCLSReportManager_Private.h"
 
-#include <FirebaseAnalyticsInterop/FIRAnalyticsInterop.h>
-#include <FirebaseAnalyticsInterop/FIRAnalyticsInteropListener.h>
-#include "FIRAEvent+Internal.h"
-#include "FIRCLSFCRAnalytics.h"
+#import "Interop/Analytics/Public/FIRAnalyticsInterop.h"
+#import "Interop/Analytics/Public/FIRAnalyticsInteropListener.h"
+
+#include "Crashlytics/Crashlytics/Helpers/FIRAEvent+Internal.h"
+#include "Crashlytics/Crashlytics/Helpers/FIRCLSFCRAnalytics.h"
 
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
@@ -305,7 +306,7 @@ static void (^reportSentCallback)(void);
   NSTimeInterval currentTimestamp = [NSDate timeIntervalSinceReferenceDate];
   [self.settings reloadFromCacheWithGoogleAppID:self.googleAppID currentTimestamp:currentTimestamp];
 
-  if (![self checkBundleIDExists]) {
+  if (![self validateAppIdentifiers]) {
     return [FBLPromise resolvedWith:@NO];
   }
 
@@ -522,7 +523,20 @@ static void (^reportSentCallback)(void);
   });
 }
 
-- (BOOL)checkBundleIDExists {
+- (BOOL)validateAppIdentifiers {
+  // When the ApplicationIdentifierModel fails to initialize, it is usually due to
+  // failing computeExecutableInfo. This can happen if the user sets the
+  // Exported Symbols File in Build Settings, and leaves off the one symbol
+  // that Crashlytics needs, "__mh_execute_header" (wich is defined in mach-o/ldsyms.h as
+  // _MH_EXECUTE_SYM). From https://github.com/firebase/firebase-ios-sdk/issues/5020
+  if (!self.appIDModel) {
+    FIRCLSErrorLog(
+        @"Crashlytics could not find the symbol for the app's main function and cannot "
+        @"start up. This can happen when Exported Symbols File is set in Build Settings. To "
+        @"resolve this, add \"__mh_execute_header\" as a newline to your Exported Symbols File.");
+    return NO;
+  }
+
   if (self.appIDModel.bundleID.length == 0) {
     FIRCLSErrorLog(@"An application must have a valid bundle identifier in its Info.plist");
     return NO;

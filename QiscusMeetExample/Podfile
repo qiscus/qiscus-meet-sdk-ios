@@ -9,8 +9,8 @@ target 'QiscusMeetExample' do
 
 #  pod 'QiscusMeet', '2.0.0.rc.1'
   pod 'QiscusMeet', :path => '../'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics', '6.30.0'
+  pod 'Firebase/Crashlytics', '6.30.0'
   pod 'Crashlytics'
 
 end
