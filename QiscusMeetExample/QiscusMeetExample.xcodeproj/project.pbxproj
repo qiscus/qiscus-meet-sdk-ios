@@ -388,7 +388,7 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
@@ -398,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dev";
@@ -415,7 +415,7 @@
 				CODE_SIGN_ENTITLEMENTS = QiscusMeetExample/QiscusMeetExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QiscusMeetExample/Info.plist;
@@ -424,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.meetios;
 				PRODUCT_NAME = "Qiscus Meet";
 				PROVISIONING_PROFILE_SPECIFIER = "Qiscus Meet IOS Dev";
