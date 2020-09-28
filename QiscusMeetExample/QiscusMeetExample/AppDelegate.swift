@@ -19,8 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 3.0)
-        QiscusMeet.setup(url: "https://meet.qiscus.com")
+        QiscusMeet.setup(url: "https://call.qiscus.com")
         QiscusMeetConfig.shared.setPassword = true
+        let params = [
+            "email": "ganjar@qiscus.com",
+            "moderator" : false,
+            "appId" : "meetstage-iec22sd",
+            "iss" : "meetcall",
+            "sub" : "call.qiscus.com"
+            ] as [String : Any]
+        
+        QiscusMeetConfig.shared.setJwtPayload = params
         QiscusMeetConfig.shared.setChat = true
         QiscusMeetConfig.shared.setOverflowMenu = true
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false

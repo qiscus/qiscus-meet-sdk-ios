@@ -91,7 +91,9 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     
     
     func conferenceJoined(_ data: [AnyHashable : Any]!) {
-
+        if let delegate = QiscusMeet.shared.QiscusMeetDelegate{
+            delegate.conferenceJoined()
+        }
     }
 
     func enterPicture(inPicture data: [AnyHashable : Any]!) {

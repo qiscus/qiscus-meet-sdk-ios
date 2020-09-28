@@ -13,6 +13,7 @@ public class QiscusMeetConfig: NSObject {
     @objc public var setChat = false
     @objc public var setOverflowMenu = false
     @objc public var setVideoThumbnailsOn = true
+    @objc public var setJwtPayload:[String:Any]? = nil
     
     fileprivate override init(){}
 }

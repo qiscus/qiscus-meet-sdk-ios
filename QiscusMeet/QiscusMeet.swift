@@ -12,6 +12,7 @@ import SwiftyJSON
 
 public protocol QiscusMeetDelegate {
     func conferenceTerminated()
+    func conferenceJoined()
 }
 
 public class QiscusMeet: NSObject {
@@ -44,12 +45,27 @@ public class QiscusMeet: NSObject {
     
     private func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
         let baseUrlRoom = getBaseUrl() + "/" + room
-        let params = ["baseUrl": baseUrlRoom,
-                      "name" : displayName,
-                      "avatar" : avatar
-                      ]
+        
+
+        var newparam = [String:Any]()
+        
+        if var params = QiscusMeetConfig.shared.setJwtPayload{
+            params["name"] = displayName
+            params["avatar"] = avatar
+            params["room"] = room
+            newparam = params
+        } else {
+            let params = ["baseUrl": baseUrlRoom,
+            "name" : displayName,
+            "avatar" : avatar
+            ]
+            newparam = params
+        }
+        
+        print(newparam)
+        
         let url = getBaseUrl() + ":9090/generate_url"
-        let jsonData = try? JSONSerialization.data(withJSONObject: params)
+        let jsonData = try? JSONSerialization.data(withJSONObject: newparam)
 
         // create post request
         var request = URLRequest(url: URL(string: url)!)
