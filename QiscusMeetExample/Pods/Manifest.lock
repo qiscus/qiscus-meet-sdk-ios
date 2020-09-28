@@ -74,7 +74,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.10)
-  - QiscusMeet (2.0.1):
+  - QiscusMeet (2.1.0):
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
 
@@ -106,8 +106,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   Firebase: 210f41ca352067d83b1ba4fd2e7fb49a0c017397
   FirebaseAnalytics: a299a86ef70fcc6aa011418bc65a7e101fb9636c
   FirebaseCore: 9a41e2de78fef10f63cee30ab10e2945266bc1fc
@@ -119,9 +119,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  QiscusMeet: 4e69b93ebb2a91aba1442be541a307c25a500eed
+  QiscusMeet: 20aead92623da09ecc4176f7c3899b295cd9665d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: bc6914058751518a5c3505aa5a6c5aa9974ad812
+PODFILE CHECKSUM: c32ffdf76a98ef021e8101c375ec4ff32de7f21c
 
 COCOAPODS: 1.9.3
