@@ -33,14 +33,20 @@ public class QiscusMeet: NSObject {
         }
     }
     
-    public class func setup(url : String){
+    public class func setup(appId: String, url : String){
         let defaults = UserDefaults.standard
         defaults.set(url, forKey: QiscusMeet.shared.prefixQiscus + "initBaseServer")
+        defaults.set(appId, forKey: QiscusMeet.shared.prefixQiscus + "appId")
     }
     
-    private func getBaseUrl() -> String{
+    public func getBaseUrl() -> String{
         let defaults = UserDefaults.standard
-        return defaults.string(forKey: prefixQiscus + "initBaseServer") ?? "https://meet.qiscus.com"
+        return defaults.string(forKey: prefixQiscus + "initBaseServer") ?? "https://call.qiscus.com"
+    }
+    
+    public func getAppId() -> String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: prefixQiscus + "appId") ?? ""
     }
     
     private func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
@@ -48,19 +54,11 @@ public class QiscusMeet: NSObject {
         
 
         var newparam = [String:Any]()
-        
-        if var params = QiscusMeetConfig.shared.setJwtPayload{
+        var params = QiscusMeetConfig.shared.setJwtConfig.getJwtPayload()
             params["name"] = displayName
             params["avatar"] = avatar
             params["room"] = room
             newparam = params
-        } else {
-            let params = ["baseUrl": baseUrlRoom,
-            "name" : displayName,
-            "avatar" : avatar
-            ]
-            newparam = params
-        }
         
         print(newparam)
         
