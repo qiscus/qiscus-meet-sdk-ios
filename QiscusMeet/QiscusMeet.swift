@@ -52,9 +52,20 @@ public class QiscusMeet: NSObject {
     private func getJwtUrl(room: String, avatar: String, displayName: String, onSuccess:  @escaping (String) -> Void, onError: @escaping (String) -> Void){
         let baseUrlRoom = getBaseUrl() + "/" + room
         
+        let jwtPayload = QiscusMeetConfig.shared.setJwtConfig.getJwtPayload()
+        
+        if jwtPayload == nil {
+            onError("Please setup jwt email")
+            return
+        }
+        
+        if QiscusMeet.shared.getAppId().isEmpty == true {
+            onError("Please setup appID first")
+            return
+        }
 
         var newparam = [String:Any]()
-        var params = QiscusMeetConfig.shared.setJwtConfig.getJwtPayload()
+        var params = jwtPayload!
             params["name"] = displayName
             params["avatar"] = avatar
             params["room"] = room

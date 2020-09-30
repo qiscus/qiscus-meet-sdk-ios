@@ -14,16 +14,20 @@ public class MeetJwtConfig: NSObject {
     @objc public var sub = QiscusMeet.shared.getBaseUrl()
     @objc public var moderator = false
     
-    @objc public func getJwtPayload() -> [String:Any] {
-        let jwtPayload = [
-            "email": email,
-            "moderator" : false,
-            "appId" : appId,
-            "iss" : iss,
-            "sub" : sub.substring(from: 8)
-            ] as [String : Any]
-        
-        return jwtPayload
+    @objc public func getJwtPayload() -> [String:Any]? {
+        if email.isEmpty == true {
+            return nil
+        } else {
+            let jwtPayload = [
+                "email": email,
+                "moderator" : false,
+                "appId" : appId,
+                "iss" : iss,
+                "sub" : sub.substring(from: 8)
+                ] as [String : Any]
+            
+            return jwtPayload
+        }
     }
     
     public override init(){}
@@ -37,16 +41,5 @@ extension String {
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
         return String(self[fromIndex...])
-    }
-
-    func substring(to: Int) -> String {
-        let toIndex = index(from: to)
-        return String(self[..<toIndex])
-    }
-
-    func substring(with r: Range<Int>) -> String {
-        let startIndex = index(from: r.lowerBound)
-        let endIndex = index(from: r.upperBound)
-        return String(self[startIndex..<endIndex])
     }
 }
