@@ -19,19 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 3.0)
-        QiscusMeet.setup(url: "https://call.qiscus.com")
-        QiscusMeetConfig.shared.setPassword = true
-        let params = [
-            "email": "ganjar@qiscus.com",
-            "moderator" : false,
-            "appId" : "meetstage-iec22sd",
-            "iss" : "meetcall",
-            "sub" : "call.qiscus.com"
-            ] as [String : Any]
+        QiscusMeet.setup(appId: "meetstage-iec22sd", url: "https://call.qiscus.com")
         
-        QiscusMeetConfig.shared.setJwtPayload = params
-        QiscusMeetConfig.shared.setChat = true
-        QiscusMeetConfig.shared.setOverflowMenu = true
+        //you can move 3 line this when you get email
+        let meetConfig = MeetJwtConfig()
+        meetConfig.email = "ganjar@qiscus.com"
+        QiscusMeetConfig.shared.setJwtConfig = meetConfig
+        //
+        
+        QiscusMeetConfig.shared.setEnableRoomName = false
+        QiscusMeetConfig.shared.setPassword = false
+        QiscusMeetConfig.shared.setChat = false
+        QiscusMeetConfig.shared.setOverflowMenu = false
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false
         
         FirebaseApp.configure()
