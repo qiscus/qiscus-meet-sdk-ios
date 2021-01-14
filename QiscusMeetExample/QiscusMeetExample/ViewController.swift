@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import QiscusMeet
 class ViewController: UIViewController {
     
     @IBOutlet weak var fieldRoom: UITextField!
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        QiscusMeet.shared.QiscusMeetDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,20 +42,18 @@ class ViewController: UIViewController {
     func setupUI(){
         //border
         btStartConference.layer.cornerRadius = 8
-        
-        fieldRoom.layer.cornerRadius = 8
+    
         fieldRoom.layer.borderWidth = 1
-        fieldRoom.layer.borderColor = UIColor.white.cgColor
+        fieldRoom.layer.borderColor = UIColor.black.cgColor
         
-        fieldName.layer.cornerRadius = 8
         fieldName.layer.borderWidth = 1
-        fieldName.layer.borderColor = UIColor.white.cgColor
-        
+        fieldName.layer.borderColor = UIColor.black.cgColor
+    
         //placeholder
-        fieldRoom.attributedPlaceholder = NSAttributedString(string: "Type your room id", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
+        fieldRoom.attributedPlaceholder = NSAttributedString(string: "Room id", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
-        fieldName.attributedPlaceholder = NSAttributedString(string: "Type your name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
-        
+        fieldName.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+//
         fieldName.setLeftPaddingPoints(10)
         fieldName.setRightPaddingPoints(10)
         fieldRoom.setLeftPaddingPoints(10)
@@ -103,13 +102,27 @@ class ViewController: UIViewController {
         
         let sharedPref = UserDefaults.standard
         sharedPref.setValue(userName, forKey: "name")
-        
-        let vc = ConferenceVC()
-        vc.name = userName
-        vc.roomID = roomID
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.call(isVideo: true, isMuted: false, name: userName, roomID: roomID)
+//        let vc = ConferenceVC()
+//        vc.name = userName
+//        vc.roomID = roomID
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func call(isVideo: Bool, isMuted: Bool, name:String, roomID:String){
+        QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png", displayName: name, onSuccess: { (vc) in
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true, completion: {
+                
+            })
+        }) { (error) in
+            print("meet error =\(error)")
+        }
+        
+    }
+    func endcall(){
+        QiscusMeet.endCall()
+    }
     func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         doneToolbar.barStyle = .default
@@ -131,6 +144,19 @@ class ViewController: UIViewController {
     }
     
    
+}
+extension ViewController:QiscusMeetDelegate{
+    func conferenceTerminated() {
+        self.navigationController?.dismiss(animated: true, completion: {
+            //actionSend comment endCall
+            self.setupUI()
+            
+        })
+    }
+    
+    func conferenceJoined(){
+
+    }
 }
 
 extension UITextField {
