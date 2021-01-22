@@ -45,7 +45,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
                 builder.setFeatureFlag("overflowMenu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
-              
+                builder.setFeatureFlag("setCallkitName",withValue: QiscusMeetConfig.shared.setCallkitName)
                 if !self.isVideo{
                     builder.videoMuted = true
                     builder.audioOnly = true

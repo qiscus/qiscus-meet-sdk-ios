@@ -15,6 +15,6 @@ public class QiscusMeetConfig: NSObject {
     @objc public var setVideoThumbnailsOn = true
     @objc public var setJwtConfig = MeetJwtConfig()
     @objc public var setEnableRoomName = true
-    
+    @objc public var setCallkitName = ""
     fileprivate override init(){}
 }

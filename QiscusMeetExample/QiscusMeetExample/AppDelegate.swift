@@ -9,7 +9,6 @@
 import UIKit
 import QiscusMeet
 import Firebase
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,13 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         meetConfig.email = "ganjar@qiscus.com"
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
         //
-        
         QiscusMeetConfig.shared.setEnableRoomName = false
         QiscusMeetConfig.shared.setPassword = false
         QiscusMeetConfig.shared.setChat = false
         QiscusMeetConfig.shared.setOverflowMenu = false
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false
-        
+        //Set Custom Callkit Name
+        QiscusMeetConfig.shared.setCallkitName = "Qiscus Custom Name :"
         FirebaseApp.configure()
         
         return true
@@ -67,8 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-
-
+  
 }
 
 // Mark: - Handle URL Scheme

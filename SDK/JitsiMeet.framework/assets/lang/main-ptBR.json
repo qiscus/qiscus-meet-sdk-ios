@@ -269,7 +269,7 @@
         "userPassword": "senha do usuário",
         "WaitForHostMsg": "A conferência <b>{{room}}</b> ainda não começou. Se você é o anfitrião, faça a autenticação. Do contrário, aguarde a chegada do anfitrião.",
         "WaitForHostMsgWOk": "A conferência <b>{{room}}</b> ainda não começou. Se você é o anfitrião, pressione Ok para autenticar. Do contrário, aguarde a chegada do anfitrião.",
-        "WaitingForHost": "Esperando o hospedeiro...",
+        "WaitingForHost": "Esperando o anfitrião...",
         "Yes": "Sim",
         "yourEntireScreen": "Toda sua tela",
         "screenSharingAudio": "Compartilhar áudio",
@@ -511,6 +511,12 @@
     },
     "sectionList": {
         "pullToRefresh": "Puxe para atualizar"
+    },
+    "security": {
+        "about": "Voce pode adicionar uma $t(lockRoomPassword) em sua reunião. Participantes irão precisar informar a $t(lockRoomPassword) antes de se juntarem na reunião.",
+        "aboutReadOnly": "Moderadores podem adicionar uma $t(lockRoomPassword) na reunião. Participantes irão precisar informar a $t(lockRoomPassword) antes de se juntarem na reunião",
+        "insecureRoomNameWarning": "Essa sala não está protegida. Participantes indesejados poderão entrar na sua reunião. Considere configurar a segurança da sua reunião utilizando o botão de segurança.",
+        "securityOptions": "Opções de segurança"
     },
     "settings": {
         "calendar": {
