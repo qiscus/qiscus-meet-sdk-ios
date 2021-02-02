@@ -9,6 +9,7 @@
 import UIKit
 import QiscusMeet
 import Firebase
+import FirebaseCore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -31,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QiscusMeetConfig.shared.setOverflowMenu = false
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false
         //Set Custom Callkit Name
-        QiscusMeetConfig.shared.setCallkitName = "Qiscus Custom Name :"
         FirebaseApp.configure()
         
         return true
