@@ -84,7 +84,7 @@ class ConferenceVC: UIViewController {
     
     func call(isVideo: Bool, isMuted: Bool){
         showLoading()
-        QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png", displayName: name, onSuccess: { (vc) in
+        QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png", displayName: name, callKitName: "Qiscus Meet", onSuccess: { (vc) in
             self.dismissLoading()
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {

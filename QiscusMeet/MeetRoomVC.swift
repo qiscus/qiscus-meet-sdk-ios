@@ -15,6 +15,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var baseUrlCall: String = ""
     var isMicMuted: Bool = false
     var isVideo: Bool = true
+    var callKitName = ""
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
     }
@@ -45,7 +46,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
                 builder.setFeatureFlag("overflowMenu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
-                builder.setFeatureFlag("setCallkitName",withValue: QiscusMeetConfig.shared.setCallkitName)
+                builder.setFeatureFlag("setCallkitName",withValue: self.callKitName)
                 if !self.isVideo{
                     builder.videoMuted = true
                     builder.audioOnly = true
