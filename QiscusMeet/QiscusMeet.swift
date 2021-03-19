@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import JitsiMeet
+import JitsiMeetSDK
 import UIKit
 import SwiftyJSON
 
