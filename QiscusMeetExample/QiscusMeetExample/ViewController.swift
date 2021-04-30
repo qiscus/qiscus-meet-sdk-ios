@@ -157,6 +157,17 @@ extension ViewController:QiscusMeetDelegate{
     func conferenceJoined(){
 
     }
+    func participantJoined(){
+        
+    }
+    func participantLeft(){
+        QiscusMeet.endCall()
+        self.navigationController?.dismiss(animated: true, completion: {
+            //actionSend comment endCall
+            self.setupUI()
+            
+        })
+    }
 }
 
 extension UITextField {

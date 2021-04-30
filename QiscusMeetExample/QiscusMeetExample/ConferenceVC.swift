@@ -127,6 +127,12 @@ extension ConferenceVC : QiscusMeetDelegate{
     func conferenceJoined(){
 
     }
+    func participantJoined(){
+        
+    }
+    func participantLeft(){
+        
+    }
 }
 
 extension UIScreen {
