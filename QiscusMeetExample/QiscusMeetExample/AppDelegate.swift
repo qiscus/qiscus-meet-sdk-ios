@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         meetConfig.email = "ganjar@qiscus.com"
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
         //
-        QiscusMeetConfig.shared.setEnableRoomName = false
+        QiscusMeetConfig.shared.setEnableRoomName = true
         QiscusMeetConfig.shared.setPassword = false
         QiscusMeetConfig.shared.setChat = false
         QiscusMeetConfig.shared.setOverflowMenu = false
