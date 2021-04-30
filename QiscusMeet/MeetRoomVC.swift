@@ -47,6 +47,8 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.setFeatureFlag("overflowMenu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
                 builder.setFeatureFlag("setCallkitName",withValue: self.callKitName)
+                builder.setFeatureFlag("overflowMenu.More",withBoolean:false)
+                
                 if !self.isVideo{
                     builder.videoMuted = true
                     builder.audioOnly = true
@@ -111,6 +113,17 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             
         }
 
+    }
+    
+    func participantJoined(_ data: [AnyHashable : Any]!) {
+        if let delegate = QiscusMeet.shared.QiscusMeetDelegate{
+            delegate.participantJoined()
+        }
+    }
+    func participantLeft(_ data: [AnyHashable : Any]!) {
+        if let delegate = QiscusMeet.shared.QiscusMeetDelegate{
+            delegate.participantLeft()
+        }
     }
 
 }
