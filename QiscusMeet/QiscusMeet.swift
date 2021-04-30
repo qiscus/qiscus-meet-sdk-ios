@@ -13,6 +13,8 @@ import SwiftyJSON
 public protocol QiscusMeetDelegate {
     func conferenceTerminated()
     func conferenceJoined()
+    func participantJoined()
+    func participantLeft()
 }
 
 public class QiscusMeet: NSObject {
