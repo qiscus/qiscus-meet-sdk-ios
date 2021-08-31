@@ -15,6 +15,7 @@ public class QiscusMeetConfig: NSObject {
     @objc public var setVideoThumbnailsOn = true
     @objc public var setJwtConfig = MeetJwtConfig()
     @objc public var setEnableRoomName = true
+    @objc public var setEnableScreenSharing = false
 //    @objc public var setEnableExtraMenu = false
     fileprivate override init(){}
 }
