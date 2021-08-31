@@ -21,7 +21,7 @@ public class MeetJwtConfig: NSObject {
             let jwtPayload = [
                 "email": email,
                 "moderator" : false,
-                "appId" : appId,
+                "app_id" : appId,
                 "iss" : iss,
                 "sub" : sub.substring(from: 8)
                 ] as [String : Any]
