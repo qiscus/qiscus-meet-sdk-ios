@@ -16,6 +16,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var isMicMuted: Bool = false
     var isVideo: Bool = true
     var callKitName = ""
+    var screenSharing:Bool = true
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
     }
@@ -37,21 +38,23 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             jitsiMeetView.delegate = self
             
             self.jitsiMeetView = jitsiMeetView
-            let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
+            let options = JitsiMeetConferenceOptions.fromBuilder { [self] builder in
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
-                builder.audioMuted = !self.isMicMuted
+                builder.setAudioMuted(!self.isMicMuted)
+                builder.setFeatureFlag("resolution", withValue: 360)
                 builder.setFeatureFlag("requirepassword.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
                 builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: QiscusMeetConfig.shared.setVideoThumbnailsOn)
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
-                builder.setFeatureFlag("overflowMenu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
+                builder.setFeatureFlag("overflow-menu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
                 builder.setFeatureFlag("setCallkitName",withValue: self.callKitName)
-                builder.setFeatureFlag("overflowMenu.More",withBoolean:false)
+                builder.setFeatureFlag("ios.screensharing.enabled" ,withBoolean: QiscusMeetConfig.shared.setEnableScreenSharing)
+
                 
                 if !self.isVideo{
-                    builder.videoMuted = true
-                    builder.audioOnly = true
+                    builder.setVideoMuted(true)
+                    builder.setAudioOnly(true)
                 }
             }
             jitsiMeetView.join(options)
@@ -99,6 +102,11 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             delegate.conferenceJoined()
         }
     }
+    
+    func conferenceWillJoin(_ data: [AnyHashable : Any]!) {
+        if let delegate = QiscusMeet.shared.QiscusMeetDelegate{
+            delegate.conferenceWillJoin()        }
+    }
 
     func enterPicture(inPicture data: [AnyHashable : Any]!) {
         self.pipViewCoordinator?.enterPictureInPicture()
@@ -125,5 +133,6 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             delegate.participantLeft()
         }
     }
+    
 
 }
