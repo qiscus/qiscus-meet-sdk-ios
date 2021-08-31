@@ -37,6 +37,10 @@
 	<string>See your scheduled meetings in the app.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Participate in meetings with video.</string>
+	<key>RTCAppGroupIdentifier</key>
+	<string>group.com.qiscus.meetios</string>
+	<key>RTCScreenSharingExtension</key>
+	<string>com.qiscus.meetios.BroadcastExtension</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Participate in meetings with voice.</string>
 	<key>UIBackgroundModes</key>
