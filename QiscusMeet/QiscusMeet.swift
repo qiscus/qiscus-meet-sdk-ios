@@ -11,8 +11,9 @@ import UIKit
 import SwiftyJSON
 
 public protocol QiscusMeetDelegate {
-    func conferenceTerminated()
     func conferenceJoined()
+    func conferenceWillJoin()
+    func conferenceTerminated()
     func participantJoined()
     func participantLeft()
 }
@@ -75,13 +76,13 @@ public class QiscusMeet: NSObject {
         
         print(newparam)
         
-        let url = getBaseUrl() + ":9090/generate_url"
+        let url = getBaseUrl() + ":5050/generate_url"
         let jsonData = try? JSONSerialization.data(withJSONObject: newparam)
 
         // create post request
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
-
+        request.addValue("Bearer X6tMDYkJF7MVPQ32", forHTTPHeaderField: "Authorization")
         // insert json data to the request
         request.httpBody = jsonData
 
