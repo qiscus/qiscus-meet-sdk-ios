@@ -26,12 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         meetConfig.email = "ganjar@qiscus.com"
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
         //
+        QiscusMeetConfig.shared.setEnableScreenSharing = true
         QiscusMeetConfig.shared.setEnableRoomName = true
-        QiscusMeetConfig.shared.setPassword = false
-        QiscusMeetConfig.shared.setChat = false
-        QiscusMeetConfig.shared.setOverflowMenu = false
+        QiscusMeetConfig.shared.setPassword = true
+        QiscusMeetConfig.shared.setChat = true
+        QiscusMeetConfig.shared.setOverflowMenu = true
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false
-        //Set Custom Callkit Name
         FirebaseApp.configure()
         
         return true
