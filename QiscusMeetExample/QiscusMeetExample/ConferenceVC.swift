@@ -117,6 +117,10 @@ class ConferenceVC: UIViewController {
 }
 
 extension ConferenceVC : QiscusMeetDelegate{
+    func conferenceWillJoin() {
+         
+    }
+    
     func conferenceTerminated() {
         self.navigationController?.dismiss(animated: true, completion: {
             //actionSend comment endCall
