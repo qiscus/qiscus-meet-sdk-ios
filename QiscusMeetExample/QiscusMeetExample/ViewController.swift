@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     }
     
     func call(isVideo: Bool, isMuted: Bool, name:String, roomID:String){
-        QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png", displayName: name,callKitName: "Qiscus Meet", onSuccess: { (vc) in
+        QiscusMeet.call(isVideo: isVideo, isMicMuted: isMuted, room: roomID, avatarUrl: "https://files.startupranking.com/startup/thumb/70089_80272951c13fa343805ec3b9161427be7a522a6f_qiscus_l.png", displayName: name,callKitName: "Qiscus Meet: "+roomID, onSuccess: { (vc) in
             vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: {
                 
@@ -146,6 +146,12 @@ class ViewController: UIViewController {
    
 }
 extension ViewController:QiscusMeetDelegate{
+    func conferenceJoined(){
+
+    }
+    func conferenceWillJoin(){
+
+    }
     func conferenceTerminated() {
         self.navigationController?.dismiss(animated: true, completion: {
             //actionSend comment endCall
@@ -154,9 +160,7 @@ extension ViewController:QiscusMeetDelegate{
         })
     }
     
-    func conferenceJoined(){
-
-    }
+    
     func participantJoined(){
         
     }
