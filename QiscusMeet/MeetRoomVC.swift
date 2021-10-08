@@ -16,6 +16,8 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var isMicMuted: Bool = false
     var isVideo: Bool = true
     var callKitName = ""
+    var userName = ""
+    var avatar = ""
     var screenSharing:Bool = true
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
@@ -36,25 +38,31 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
             // create and configure jitsimeet view
             let jitsiMeetView = JitsiMeetView()
             jitsiMeetView.delegate = self
-            
+            let userInfo = JitsiMeetUserInfo()
+            userInfo.displayName = self.userName
+            userInfo.avatar = URL(string: self.avatar)
             self.jitsiMeetView = jitsiMeetView
             let options = JitsiMeetConferenceOptions.fromBuilder { [self] builder in
                 builder.welcomePageEnabled = false
                 builder.room  = self.baseUrlCall
-                builder.setAudioMuted(!self.isMicMuted)
+                builder.setAudioMuted(self.isMicMuted)
+                builder.userInfo = userInfo
                 builder.setFeatureFlag("resolution", withValue: 360)
                 builder.setFeatureFlag("requirepassword.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
                 builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: QiscusMeetConfig.shared.setVideoThumbnailsOn)
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
                 builder.setFeatureFlag("overflow-menu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
+                builder.setFeatureFlag("invite.enabled", withBoolean: true)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
                 builder.setFeatureFlag("setCallkitName",withValue: self.callKitName)
+                builder.setFeatureFlag("invite.enabled",withValue: false)
                 builder.setFeatureFlag("ios.screensharing.enabled" ,withBoolean: QiscusMeetConfig.shared.setEnableScreenSharing)
-
-                
                 if !self.isVideo{
                     builder.setVideoMuted(true)
                     builder.setAudioOnly(true)
+                }else{
+                    builder.setVideoMuted(false)
+                    builder.setAudioOnly(false)
                 }
             }
             jitsiMeetView.join(options)
