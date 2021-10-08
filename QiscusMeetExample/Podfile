@@ -6,7 +6,6 @@ workspace 'QiscusMeet'
 target 'QiscusMeetExample' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
   #pod 'QiscusMeet', '2.6.0'
   pod 'QiscusMeet', :path => '../'
   pod 'Firebase/Analytics', '6.30.0'

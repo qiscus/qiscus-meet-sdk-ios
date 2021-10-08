@@ -4,5 +4,5 @@ ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/QiscusMeet/QiscusMeet.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework
-${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/JitsiMeetSDK.framework/JitsiMeetSDK
-${PODS_XCFRAMEWORKS_BUILD_DIR}/WebRTC/WebRTC.framework/WebRTC
+${PODS_XCFRAMEWORKS_BUILD_DIR}/QiscusMeet/JitsiMeetSDK.framework/JitsiMeetSDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/QiscusMeet/WebRTC.framework/WebRTC

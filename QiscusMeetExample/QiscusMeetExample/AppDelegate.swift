@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 3.0)
         QiscusMeet.setup(appId: "meetstage-iec22sd", url: "https://call.qiscus.com")
         
-        //you can move 3 line this when you get email
+        //you can move 3 lineTU8 this when you get email
         let meetConfig = MeetJwtConfig()
         meetConfig.email = "ganjar@qiscus.com"
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
