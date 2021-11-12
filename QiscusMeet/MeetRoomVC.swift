@@ -18,7 +18,6 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
     var callKitName = ""
     var userName = ""
     var avatar = ""
-    var screenSharing:Bool = true
     init() {
         super.init(nibName: "MeetRoomVC", bundle: QiscusMeet.bundle)
     }
@@ -48,6 +47,7 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.setAudioMuted(self.isMicMuted)
                 builder.userInfo = userInfo
                 builder.setFeatureFlag("resolution", withValue: 360)
+                builder.setFeatureFlag("pip.enabled", withValue: false)
                 builder.setFeatureFlag("requirepassword.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
                 builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: QiscusMeetConfig.shared.setVideoThumbnailsOn)
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
