@@ -191,8 +191,6 @@ public class QiscusMeet: NSObject {
             vc.isVideo = isVideo
             vc.isMicMuted =  isMicMuted
             vc.callKitName = callKitName
-            vc.userName = displayName
-            vc.avatar = avatarUrl
             onSuccess(vc)
         }) { (error) in
             onError(error)
