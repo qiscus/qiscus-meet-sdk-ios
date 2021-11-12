@@ -74,7 +74,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.12)
-  - QiscusMeet (2.6.2):
+  - QiscusMeet (2.7.1):
     - SwiftyJSON
   - SwiftyJSON (5.0.1)
 
@@ -119,9 +119,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  QiscusMeet: c7509c0534628bd3fc43aa3a52b04a81807361cc
+  QiscusMeet: b0c2397cb4eefa3a4b9a08364368eefeaf975fbc
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: c8e1792501573f5e5afd85da2ff18e5dfe49ce30
+PODFILE CHECKSUM: 754317e04f356702eb8c1deb33aa6220fe162f83
 
 COCOAPODS: 1.11.2
