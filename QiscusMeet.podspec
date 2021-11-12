@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'QiscusMeet'
-  s.version          = '2.7.0'
+  s.version          = '2.7.1'
   s.summary          = 'Qiscus Meet iOS SDK'
   s.description      = 'Qiscus Meet is a WebRTC compatible, free and Open Source video conferencing system that provides browsers and mobile applications with Real Time Communications capabilities.'
   s.homepage         = 'https://documentation.qiscus.com/qiscus-meet/introduction'
