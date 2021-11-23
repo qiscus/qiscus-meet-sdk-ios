@@ -12,6 +12,18 @@
 		<data>
 		M5zdV8/VsUEWm2Ff8xQoeC0dpjk=
 		</data>
+		<key>Frameworks/WebRTC.framework/Info.plist</key>
+		<data>
+		YtfazmWwfDiXTR72O3GBKYAKuNw=
+		</data>
+		<key>Frameworks/WebRTC.framework/WebRTC</key>
+		<data>
+		Hv3NHF624tMzdTaKFjnrRefIYT0=
+		</data>
+		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
+		<data>
+		IZ4xQ4znjSfDBiQbhDmQmDQjHpg=
+		</data>
 		<key>GoogleSignIn.bundle/Info.plist</key>
 		<data>
 		BfmsbcfBh93cy6vWTriZJESBAgw=
@@ -396,7 +408,7 @@
 		</data>
 		<key>Headers/JitsiMeetSDK-Swift.h</key>
 		<data>
-		nUmEQ68pADtpIXGN3BpDjUNPWBE=
+		lzIfxlz76kGOlwyfbK0rzIo5r+E=
 		</data>
 		<key>Headers/JitsiMeetSDK.h</key>
 		<data>
@@ -416,31 +428,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ctEqjuEvMIQNbxfajRc+t/wLmCM=
+		AVTA53OiJmCgocmH9HZIeK1i/cE=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Njr3Ahp9u3noaFF2NJFjV1nj3z4=
+		HhbCMTOwkl2WkoDkF0Ymbof8/nY=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		WmulbGnz2a60tnDVLUZRqq8za80=
+		XjZdLOg5bCRl1DMU9vLmd1UJ0Vg=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		NMi14+NZUQuYbGNSPJzzYukGi/A=
+		p+skfE0qA9DsXy5koxfNFn1Qexc=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		Njr3Ahp9u3noaFF2NJFjV1nj3z4=
+		HhbCMTOwkl2WkoDkF0Ymbof8/nY=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		WmulbGnz2a60tnDVLUZRqq8za80=
+		XjZdLOg5bCRl1DMU9vLmd1UJ0Vg=
 		</data>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		NMi14+NZUQuYbGNSPJzzYukGi/A=
+		p+skfE0qA9DsXy5koxfNFn1Qexc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -856,7 +868,7 @@
 		</data>
 		<key>main.jsbundle</key>
 		<data>
-		AiaZwnQbYmVFduTJhb3/l8TZ4JQ=
+		YtAI9EoDgBdxPIJlZslEkvgS3ks=
 		</data>
 		<key>noAudioSignal.mp3</key>
 		<data>
@@ -941,6 +953,27 @@
 			<key>hash2</key>
 			<data>
 			AqtX5OZ6DLSN0v80gw6KxA9EdvsIymvj9c2Eb2RoQPA=
+			</data>
+		</dict>
+		<key>Frameworks/WebRTC.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KsHq+NeKYv5F4sxgcmXNHWTd/8dLK+Ps+j3pQUOpekw=
+			</data>
+		</dict>
+		<key>Frameworks/WebRTC.framework/WebRTC</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mlDsOJ+yRA6mpjNoEIoA9qrLxybUqXlUjIh2OQas6yc=
+			</data>
+		</dict>
+		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			S7GWrh9fOGPulJl1w1VIkvBKu3p1hv9DCjzgiflVdqI=
 			</data>
 		</dict>
 		<key>GoogleSignIn.bundle/Info.plist</key>
@@ -1359,7 +1392,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sc2W3SLFN090L/vFXKUrbPs0Y2yQOrXbGAQ1ulPqod0=
+			PmIE2dsgA8pq7NgyzQLJ6ud8H0qlmgsabT3DAH01O6w=
 			</data>
 		</dict>
 		<key>Headers/JitsiMeetSDK.h</key>
@@ -1394,42 +1427,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4GrftskzYz47v8mAGuXn2irWsWVcSqeqFb2S72UVGAc=
+			UWZlXtlgrf0Y5vxd2+bWH5ZXrg9dO/cO6wZyi+Ia0GU=
 			</data>
 		</dict>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ROBC7WbENn/rOEninXB3L7ENpbM8uq3kmu2Mctze6XI=
+			ssuwroi5bAOwvxpXXwB/XT3XLiYgAGKQQ92sL+f5HWo=
 			</data>
 		</dict>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9ow1HqS5JDyYRPq/ERtWciC0jidZzpCTg1pJ15yHvjo=
+			AzrB5UbU16vTTFWyTtQOWHS6k2xlrxnp+yYwP6Vu6As=
 			</data>
 		</dict>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4GrftskzYz47v8mAGuXn2irWsWVcSqeqFb2S72UVGAc=
+			UWZlXtlgrf0Y5vxd2+bWH5ZXrg9dO/cO6wZyi+Ia0GU=
 			</data>
 		</dict>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ROBC7WbENn/rOEninXB3L7ENpbM8uq3kmu2Mctze6XI=
+			ssuwroi5bAOwvxpXXwB/XT3XLiYgAGKQQ92sL+f5HWo=
 			</data>
 		</dict>
 		<key>Modules/JitsiMeetSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9ow1HqS5JDyYRPq/ERtWciC0jidZzpCTg1pJ15yHvjo=
+			AzrB5UbU16vTTFWyTtQOWHS6k2xlrxnp+yYwP6Vu6As=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -2157,7 +2190,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			738IvXe/bKYQW5ymlPUX6n8oOBb+Bt1r6e7gerEWuM0=
+			Fr+8FfrPnut4j97H5nw9TojloFN/TUza+7ZS05AsXcs=
 			</data>
 		</dict>
 		<key>noAudioSignal.mp3</key>
