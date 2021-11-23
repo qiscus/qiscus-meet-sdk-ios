@@ -48,15 +48,24 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.userInfo = userInfo
                 builder.setFeatureFlag("resolution", withValue: 360)
                 builder.setFeatureFlag("pip.enabled", withValue: false)
-                builder.setFeatureFlag("requirepassword.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
+                builder.setFeatureFlag("meeting-password.enabled", withBoolean: QiscusMeetConfig.shared.setPassword)
                 builder.setFeatureFlag("videoThumbnail.enabled", withBoolean: QiscusMeetConfig.shared.setVideoThumbnailsOn)
                 builder.setFeatureFlag("chat.enabled", withBoolean: QiscusMeetConfig.shared.setChat)
                 builder.setFeatureFlag("overflow-menu.enabled", withBoolean: QiscusMeetConfig.shared.setOverflowMenu)
-                builder.setFeatureFlag("invite.enabled", withBoolean: true)
                 builder.setFeatureFlag("meeting-name.enabled", withValue: QiscusMeetConfig.shared.setEnableRoomName)
                 builder.setFeatureFlag("setCallkitName",withValue: self.callKitName)
-                builder.setFeatureFlag("invite.enabled",withValue: false)
+                builder.setFeatureFlag("invite.enabled",withValue: QiscusMeetConfig.shared.setEnableInvite)
                 builder.setFeatureFlag("ios.screensharing.enabled" ,withBoolean: QiscusMeetConfig.shared.setEnableScreenSharing)
+                builder.setFeatureFlag("reactions.enabled", withValue: QiscusMeetConfig.shared.setEnableReactions)
+                builder.setFeatureFlag("raise-hand.enabled", withValue: QiscusMeetConfig.shared.setEnableRaiseHand)
+                builder.setFeatureFlag("security-options.enabled", withValue: QiscusMeetConfig.shared.setEnableSecurityOptions)
+                builder.setFeatureFlag("toolbox.enabled", withValue: QiscusMeetConfig.shared.setEnableToolbox)
+                builder.setFeatureFlag("tile-view.enabled", withValue: QiscusMeetConfig.shared.setEnableTileView)
+                builder.setFeatureFlag("toolbox.alwaysVisible", withValue: QiscusMeetConfig.shared.setToolboxAlwaysVisible)
+                builder.setFeatureFlag("participantMenu.enabled", withValue: QiscusMeetConfig.shared.setEnableParticipantPane)
+                builder.setFeatureFlag("videoMuteButton.enabled", withValue: QiscusMeetConfig.shared.setEnableVideoMuteButton)
+                
+                
                 if !self.isVideo{
                     builder.setVideoMuted(true)
                     builder.setAudioOnly(true)
