@@ -23,15 +23,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //you can move 3 lineTU8 this when you get email
         let meetConfig = MeetJwtConfig()
-        meetConfig.email = "ganjar@qiscus.com"
+        meetConfig.email = "users@qiscus.com"
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
         //
-        QiscusMeetConfig.shared.setEnableScreenSharing = true
+        //Default Value : true
         QiscusMeetConfig.shared.setEnableRoomName = true
+        //Default Value : false
+        //Add Password Options in Security Dialog
         QiscusMeetConfig.shared.setPassword = true
+        //Default Value : false
         QiscusMeetConfig.shared.setChat = true
+        //Default Value : false
         QiscusMeetConfig.shared.setOverflowMenu = true
+        //Default Value : true
         QiscusMeetConfig.shared.setVideoThumbnailsOn = false
+        
+        //Default Value : false
+        //Please Create Broadcast Extension to use Screen Sharing in iOS
+        QiscusMeetConfig.shared.setEnableScreenSharing = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableReactions = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableRaiseHand = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableSecurityOptions = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableToolbox = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableTileView = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setToolboxAlwaysVisible = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableParticipantPane = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableVideoMuteButton = true
+        //Default Value : false
+        QiscusMeetConfig.shared.setEnableInvite = true
         FirebaseApp.configure()
         
         return true
