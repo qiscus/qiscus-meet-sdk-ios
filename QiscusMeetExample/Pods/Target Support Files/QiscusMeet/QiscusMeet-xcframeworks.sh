@@ -149,6 +149,6 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/../../SDK/JitsiMeetSDK.xcframework" "JitsiMeetSDK" "framework" "ios-x86_64-simulator" "ios-arm64"
+install_xcframework "${PODS_ROOT}/../../SDK/JitsiMeetSDK.xcframework" "JitsiMeetSDK" "framework" "ios-arm64" "ios-x86_64-simulator"
 install_xcframework "${PODS_ROOT}/../../SDK/WebRTC.xcframework" "WebRTC" "framework" "ios-arm64" "ios-x86_64-simulator"
 

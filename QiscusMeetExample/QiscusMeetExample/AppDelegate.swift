@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QiscusMeetConfig.shared.setJwtConfig = meetConfig
         //
         //Default Value : true
-        QiscusMeetConfig.shared.setEnableRoomName = true
+        QiscusMeetConfig.shared.setEnableRoomName = false
         //Default Value : false
         //Add Password Options in Security Dialog
         QiscusMeetConfig.shared.setPassword = true
@@ -57,8 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QiscusMeetConfig.shared.setEnableParticipantPane = true
         //Default Value : true
         QiscusMeetConfig.shared.setEnableVideoMuteButton = true
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableAudioMuteButton = false
+        //Default Value : true
+        QiscusMeetConfig.shared.setEnableConferenceTimer = false
         //Default Value : false
-        QiscusMeetConfig.shared.setEnableInvite = true
+        QiscusMeetConfig.shared.setEnableInvite = false
+        
         FirebaseApp.configure()
         
         return true
