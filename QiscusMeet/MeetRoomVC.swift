@@ -64,8 +64,8 @@ class MeetRoomVC: UIViewController, JitsiMeetViewDelegate {
                 builder.setFeatureFlag("toolbox.alwaysVisible", withValue: QiscusMeetConfig.shared.setToolboxAlwaysVisible)
                 builder.setFeatureFlag("participantMenu.enabled", withValue: QiscusMeetConfig.shared.setEnableParticipantPane)
                 builder.setFeatureFlag("videoMuteButton.enabled", withValue: QiscusMeetConfig.shared.setEnableVideoMuteButton)
-                
-                
+                builder.setFeatureFlag("audioMuteButton.enabled", withValue:QiscusMeetConfig.shared.setEnableAudioMuteButton)
+                builder.setFeatureFlag("conference-timer.enabled", withValue: QiscusMeetConfig.shared.setEnableConferenceTimer)
                 if !self.isVideo{
                     builder.setVideoMuted(true)
                     builder.setAudioOnly(true)

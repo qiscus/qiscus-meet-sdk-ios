@@ -24,6 +24,8 @@ public class QiscusMeetConfig: NSObject {
     @objc public var setToolboxAlwaysVisible = true
     @objc public var setEnableParticipantPane = true
     @objc public var setEnableVideoMuteButton = true
+    @objc public var setEnableAudioMuteButton = true
     @objc public var setEnableInvite = false
+    @objc public var setEnableConferenceTimer = true
     fileprivate override init(){}
 }
