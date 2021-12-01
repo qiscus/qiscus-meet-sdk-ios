@@ -63,7 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QiscusMeetConfig.shared.setEnableConferenceTimer = false
         //Default Value : false
         QiscusMeetConfig.shared.setEnableInvite = false
-        
+        //Default Value : false
+        QiscusMeetConfig.shared.setEnableMuteAudioEveryone = true
+        //Default Value : false
+        QiscusMeetConfig.shared.setEnableMuteVideoEveryone = true
         FirebaseApp.configure()
         
         return true
