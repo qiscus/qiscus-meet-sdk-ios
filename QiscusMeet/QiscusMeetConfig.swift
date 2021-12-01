@@ -27,5 +27,7 @@ public class QiscusMeetConfig: NSObject {
     @objc public var setEnableAudioMuteButton = true
     @objc public var setEnableInvite = false
     @objc public var setEnableConferenceTimer = true
+    @objc public var setEnableMuteAudioEveryone = false
+    @objc public var setEnableMuteVideoEveryone = false
     fileprivate override init(){}
 }
